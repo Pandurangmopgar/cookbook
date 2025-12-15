@@ -1,0 +1,248 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #0f172a;
+  color: #f1f5f9;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Clerk Modal Dark Theme Styling - Full Override */
+.cl-rootBox,
+.cl-card,
+.cl-signIn-root,
+.cl-signUp-root {
+  background-color: #1e293b !important;
+  color: #f1f5f9 !important;
+}
+
+.cl-card {
+  border: 1px solid #334155 !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Header text */
+.cl-headerTitle,
+.cl-headerSubtitle,
+.cl-dividerText {
+  color: #f1f5f9 !important;
+}
+
+/* Form labels */
+.cl-formFieldLabel,
+.cl-formFieldLabelRow label {
+  color: #e2e8f0 !important;
+}
+
+/* Input fields */
+.cl-formFieldInput,
+.cl-input,
+input[type="email"],
+input[type="text"],
+input[type="password"] {
+  background-color: #0f172a !important;
+  border: 1px solid #475569 !important;
+  color: #f1f5f9 !important;
+}
+
+.cl-formFieldInput::placeholder,
+.cl-input::placeholder {
+  color: #94a3b8 !important;
+}
+
+.cl-formFieldInput:focus,
+.cl-input:focus {
+  border-color: #7c3aed !important;
+  box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.3) !important;
+}
+
+/* Primary button */
+.cl-formButtonPrimary,
+.cl-button-primary {
+  background-color: #7c3aed !important;
+  color: #ffffff !important;
+}
+
+.cl-formButtonPrimary:hover,
+.cl-button-primary:hover {
+  background-color: #6d28d9 !important;
+}
+
+/* Social buttons (Google, etc.) */
+.cl-socialButtonsBlockButton,
+.cl-socialButtonsIconButton {
+  background-color: #334155 !important;
+  border: 1px solid #475569 !important;
+  color: #f1f5f9 !important;
+}
+
+.cl-socialButtonsBlockButton:hover,
+.cl-socialButtonsIconButton:hover {
+  background-color: #475569 !important;
+}
+
+.cl-socialButtonsBlockButtonText {
+  color: #f1f5f9 !important;
+}
+
+/* Footer links */
+.cl-footerActionLink,
+.cl-footerActionText {
+  color: #a78bfa !important;
+}
+
+.cl-footerActionLink:hover {
+  color: #c4b5fd !important;
+}
+
+/* Divider */
+.cl-dividerLine {
+  background-color: #475569 !important;
+}
+
+.cl-dividerText {
+  color: #94a3b8 !important;
+}
+
+/* Error messages */
+.cl-formFieldErrorText {
+  color: #f87171 !important;
+}
+
+/* Modal backdrop */
+.cl-modalBackdrop {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+/* Internal elements that need color override */
+.cl-internal-b3fm6y,
+.cl-internal-1dauvpw,
+.cl-internal-1hp5nqm {
+  color: #f1f5f9 !important;
+}
+
+/* Development mode banner */
+.cl-internal-1fsy7jv {
+  background-color: #7c3aed !important;
+  color: #ffffff !important;
+}
+
+/* User button and profile */
+.cl-userButtonPopoverCard,
+.cl-userButtonPopoverActions {
+  background-color: #1e293b !important;
+  border: 1px solid #334155 !important;
+}
+
+.cl-userButtonPopoverActionButton {
+  color: #f1f5f9 !important;
+}
+
+.cl-userButtonPopoverActionButton:hover {
+  background-color: #334155 !important;
+}
+
+/* Identifier preview (email shown) */
+.cl-identityPreview,
+.cl-identityPreviewText {
+  color: #f1f5f9 !important;
+}
+
+.cl-identityPreviewEditButton {
+  color: #a78bfa !important;
+}
+
+/* OTP/Code input */
+.cl-otpCodeFieldInput {
+  background-color: #0f172a !important;
+  border: 1px solid #475569 !important;
+  color: #f1f5f9 !important;
+}
+
+/* Alert messages */
+.cl-alert {
+  background-color: #1e293b !important;
+  border-color: #475569 !important;
+  color: #f1f5f9 !important;
+}
+
+/* NeetCode-style resizer - prevent text selection during resize */
+.resizing * {
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}
+
+/* Smooth transitions for panels during resize */
+.resize-transition {
+  transition: width 0.15s ease-out;
+}
+
+/* Custom scrollbar for problem pane */
+.problem-pane-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.problem-pane-scroll::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+.problem-pane-scroll::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+.problem-pane-scroll::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+/* NeetCode-style section panels */
+.neetcode-section {
+  background: #1a1a1a;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Section tab headers */
+.section-tab-header {
+  height: 36px;
+  background: #262626;
+  border-bottom: 1px solid #333;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+}
+
+/* Active tab styling */
+.section-tab-active {
+  background: #1a1a1a;
+  color: white;
+  border-top: 1px solid #333;
+  border-left: 1px solid #333;
+  border-right: 1px solid #333;
+  border-radius: 4px 4px 0 0;
+  margin-bottom: -1px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Dark background for main content area */
+.main-content-dark {
+  background: #0a0a0a;
+}
