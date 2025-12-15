@@ -38,7 +38,7 @@ export function useSolvedProblems() {
 
   // Add a problem to solved set (called when user solves a problem)
   const addSolved = useCallback((problemId: string) => {
-    setSolvedProblems(prev => new Set([...prev, problemId]));
+    setSolvedProblems(prev => new Set([...Array.from(prev), problemId]));
   }, []);
 
   // Check if a problem is solved
