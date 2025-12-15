@@ -5,10 +5,14 @@ export type VisualizationType = 'gradient-descent' | 'linear-regression' | 'neur
 export interface Problem {
   id: string;
   title: string;
-  difficulty: 'Easy' | 'Medium' | 'Hard';
+  difficulty: 'Easy' | 'Medium' | 'Hard' | 'easy' | 'medium' | 'hard';
   description: string;
-  functionName: string; 
+  category?: string;
+  functionName?: string; 
   visualization?: VisualizationType;
+  hints?: string[];
+  concepts?: string[];
+  commonMistakes?: string[];
   examples: Array<{
     input: string;
     output: string;

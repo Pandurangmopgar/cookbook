@@ -180,4 +180,81 @@ export async function getProblemHistory(
   }
 }
 
+// Get user's overall learning profile
+export async function getLearningProfile(userId: string): Promise<LearningProfile> {
+  const defaultProfile: LearningProfile = {
+    strengths: [],
+    weaknesses: [],
+    problemsSolved: 0,
+    totalAttempts: 0,
+    averageHintsUsed: 0,
+    preferredHintStyle: 'questions',
+    currentStreak: 0,
+  };
+
+  if (!memory) return defaultProfile;
+
+  try {
+    const results = await memory.searchMemories({
+      query: 'problem attempt solved learning insight',
+      user_id: userId,
+      limit: 50,
+      mode: 'hybrid',
+    });
+
+    if (!results.results || results.results.length === 0) {
+      return defaultProfile;
+    }
+
+    // Analyze attempts to build profile
+    let solved = 0;
+    let totalHints = 0;
+    const categories: Record<string, { solved: number; total: number }> = {};
+
+    for (const mem of results.results) {
+      if (mem.metadata?.type === 'problem_attempt') {
+        const category = mem.metadata.category || 'general';
+        if (!categories[category]) {
+          categories[category] = { solved: 0, total: 0 };
+        }
+        categories[category].total++;
+        if (mem.metadata.solved) {
+          solved++;
+          categories[category].solved++;
+        }
+        totalHints += mem.metadata.hintsUsed || 0;
+      }
+    }
+
+    const totalAttempts = results.results.filter(
+      (m: any) => m.metadata?.type === 'problem_attempt'
+    ).length;
+
+    // Determine strengths and weaknesses
+    const strengths: string[] = [];
+    const weaknesses: string[] = [];
+    for (const [cat, stats] of Object.entries(categories)) {
+      const successRate = stats.total > 0 ? stats.solved / stats.total : 0;
+      if (successRate >= 0.7 && stats.total >= 2) {
+        strengths.push(cat);
+      } else if (successRate < 0.4 && stats.total >= 2) {
+        weaknesses.push(cat);
+      }
+    }
+
+    return {
+      strengths,
+      weaknesses,
+      problemsSolved: solved,
+      totalAttempts,
+      averageHintsUsed: totalAttempts > 0 ? totalHints / totalAttempts : 0,
+      preferredHintStyle: 'questions',
+      currentStreak: 0,
+    };
+  } catch (e) {
+    console.error('Failed to get learning profile:', e);
+    return defaultProfile;
+  }
+}
+
 export { memory };

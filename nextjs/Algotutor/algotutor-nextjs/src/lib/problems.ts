@@ -10,6 +10,7 @@ export interface Problem {
   difficulty: 'easy' | 'medium' | 'hard';
   category: string;
   description: string;
+  functionName: string;
   examples: { input: string; output: string; explanation?: string }[];
   constraints: string[];
   starterCode: string;
@@ -30,6 +31,7 @@ export const PROBLEMS: Problem[] = [
     title: 'Binary Search',
     difficulty: 'easy',
     category: 'Binary Search',
+    functionName: 'binary_search',
     description: `Given a sorted array of integers \`nums\` and a target value \`target\`, return the index of \`target\` if it exists in the array, otherwise return \`-1\`.
 
 You must write an algorithm with O(log n) runtime complexity.`,
@@ -94,6 +96,7 @@ You must write an algorithm with O(log n) runtime complexity.`,
     title: 'Two Sum',
     difficulty: 'easy',
     category: 'Hash Map',
+    functionName: 'two_sum',
     description: `Given an array of integers \`nums\` and an integer \`target\`, return the indices of the two numbers that add up to \`target\`.
 
 You may assume each input has exactly one solution, and you may not use the same element twice.`,
@@ -154,6 +157,7 @@ You may assume each input has exactly one solution, and you may not use the same
     title: 'Valid Parentheses',
     difficulty: 'easy',
     category: 'Stack',
+    functionName: 'is_valid',
     description: `Given a string \`s\` containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
 
 A string is valid if:
@@ -222,6 +226,7 @@ A string is valid if:
     title: 'Maximum Subarray',
     difficulty: 'medium',
     category: 'Dynamic Programming',
+    functionName: 'max_subarray',
     description: `Given an integer array \`nums\`, find the subarray with the largest sum and return its sum.
 
 A subarray is a contiguous non-empty sequence of elements within an array.`,
@@ -281,6 +286,7 @@ A subarray is a contiguous non-empty sequence of elements within an array.`,
     title: 'Reverse Linked List',
     difficulty: 'easy',
     category: 'Linked List',
+    functionName: 'reverse_list',
     description: `Given the head of a singly linked list, reverse the list and return the reversed list.`,
     examples: [
       { input: 'head = [1,2,3,4,5]', output: '[5,4,3,2,1]' },
@@ -365,6 +371,7 @@ export const MORE_PROBLEMS: Problem[] = [
     title: 'Climbing Stairs',
     difficulty: 'easy',
     category: 'Dynamic Programming',
+    functionName: 'climb_stairs',
     description: `You are climbing a staircase. It takes \`n\` steps to reach the top.
 
 Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?`,
@@ -419,6 +426,7 @@ Each time you can either climb 1 or 2 steps. In how many distinct ways can you c
     title: 'Merge Two Sorted Arrays',
     difficulty: 'easy',
     category: 'Two Pointers',
+    functionName: 'merge_arrays',
     description: `Given two sorted integer arrays \`nums1\` and \`nums2\`, merge them into a single sorted array.
 
 Return the merged array.`,
